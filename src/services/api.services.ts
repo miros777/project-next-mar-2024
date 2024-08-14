@@ -1,24 +1,29 @@
-import axios, {AxiosResponse} from "axios";
 import {IGenres} from "@/models/IGenres";
 import {IMovie} from "@/models/IMovie";
 import {IMovies} from "@/models/IMovies";
 import {headers} from "next/headers";
 import {IGenre} from "@/models/IGenre";
+import {IMovieInfo} from "@/models/IMovieInfo";
 
 const baseUrl = "https://api.themoviedb.org/3";
-const token = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZjM2ZmMzYWJmYTlkYzA2MTRmOTcxYjY2ZDhkOWE5YyIsIm5iZiI6MTcyMzI3MTQzNS40ODM5ODQsInN1YiI6IjY2YjY3ZWU3MjVjOGFhNDg3ZGM1ZjJiYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.jHe96US8_pptrulspihPZjrynsX-OSCyas54KUTglsM';
+const token = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZjM2ZmMzYWJmYTlkYzA2MTRmOTcxYjY2ZDhkOWE5YyIsIm5iZiI6MTcyMzY1MTg5OC40MjU5MjYsInN1YiI6IjY2YjY3ZWU3MjVjOGFhNDg3ZGM1ZjJiYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.yaI_agqnmauPcDUtxWU5pKmF7dkXnAWtU2eHpaV26Lk';
+const key = 'ef36fc3abfa9dc0614f971b66d8d9a9c';
 
+
+const options = {method: 'GET', headers: {
+        accept: 'application/json',
+        Authorization: 'Bearer ' + token
+    }};
 let customHeaders = {
     Accept: 'application/json',
     Authorization: 'Bearer ' + token
 };
-const options = {method: 'GET', headers: customHeaders};
 
-let posterHeaders = {
-    Accept: 'image/jpeg',
-    Authorization: 'Bearer ' + token
-};
-const optionsPoster = {method: 'GET', headers: posterHeaders};
+// let posterHeaders = {
+//     Accept: 'image/jpeg',
+//     Authorization: 'Bearer ' + token
+// };
+// const optionsPoster = {method: 'GET', headers: posterHeaders};
 
 const servicesGender = {
     getGenre: async (): Promise<IGenre[]> => {
@@ -26,8 +31,6 @@ const servicesGender = {
             .then(response => response.json())
             // .then(response => response)
             .catch(err => console.error(err));
-        // console.log(response);
-//
         return response.genres;
     }
 };
@@ -56,10 +59,18 @@ const servicesMovie = {
         return res.backdrops;
     },
 
-    // getMovieByID: async (movie_id: number): Promise<IMovie> => {
-    //     let response: AxiosResponse<IMovie> = await axiosInstans.get('/movie/' + movie_id);
-    //     return response.data;
-    // }
+    getMovieByID: async (movie_id: number): Promise<IMovieInfo> => {
+        const res = await fetch(baseUrl + '/movie/' + movie_id, options)
+            .then(response => response.json())
+            .catch(err => console.error(err));
+        return res;
+    },
+    searchByQuery: async (word: string): Promise<IMovie[]> => {
+        const res = await fetch(baseUrl + '/search/movie?query=' + word, options)
+            .then(response => response.json())
+            .catch(err => console.error(err));
+        return res.results;
+    },
 };
 
 

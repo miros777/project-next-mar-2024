@@ -1,20 +1,18 @@
 import React, {createElement} from 'react';
-import PosterPreviewComponent from "@/components/PosterPreview/PosterPreviewComponent";
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import WATER_IMAGE from "*.png";
-import StarsRatingComponent from "@/components/StarsRating/StarsRatingComponent";
+import Link from "next/link";
+import {getPlaceholder} from "@/helpers/helpers";
 
+type myType = {
+    children: React.ReactNode;
+}
 const MoviesListCardComponent = async ({movie}) => {
+
     return (
         <div style={{width: '33%'}}>
                 {/*<PosterPreviewComponent movie_id={movie.id}/>*/}
                 <div>{movie.adult}</div>
                 <div>
-                        {
-                                createElement("img",
-                                    {src: "https://image.tmdb.org/t/p/w500" + movie.backdrop_path, width: 200})
-                        }
+                    {getPlaceholder(movie.backdrop_path)}
                 </div>
                 {/*<div>{movie.title}</div>*/}
                 <div>{movie.original_title}</div>
@@ -31,8 +29,10 @@ const MoviesListCardComponent = async ({movie}) => {
                 <div>video: {movie.video}</div>
                 <div>vote_count: {movie.vote_count}</div>
                 <div>
-                    <StarsRatingComponent average={movie.vote_average}/>
+                    {/*<StarsRatingComponent average={movie.vote_average}/>*/}
                     vote_average: {movie.vote_average}</div>
+            {/*<Link href={"/movies/" + movie.id}>More info...</Link>*/}
+            <Link href={{pathname: "/movies/" + movie.id, query: {data: JSON.stringify(movie)}}}>More info...</Link>
                 <br/>
         </div>
     );
