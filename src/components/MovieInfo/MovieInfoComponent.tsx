@@ -1,5 +1,7 @@
 import React from 'react';
 import {servicesMovie} from "@/services/api.services";
+import PosterPreviewComponent from "@/components/PosterPreview/PosterPreviewComponent";
+import StarsRatingComponent from "@/components/StarsRating/StarsRatingComponent";
 
 const MovieInfoComponent =  async ({params}) => {
     const id_movie = params;
@@ -8,39 +10,40 @@ const MovieInfoComponent =  async ({params}) => {
     console.log(movie);
     return (
         <div>
-            <h3>MovieInfoComponent</h3>
+            <h2>MovieInfoComponent</h2>
+            <PosterPreviewComponent movie_id={movie.id}/>
             <div>{movie.adult}</div>
-            <div>backdrop_path: {movie.backdrop_path}</div>
+            {/*<div>backdrop_path: {movie.backdrop_path}</div>*/}
+            <h4>{movie.original_title}</h4>
             <div>
-                {movie.belongs_to_collection.id}
-                {movie.belongs_to_collection.name}
-                {movie.belongs_to_collection.poster_path}
-                {movie.belongs_to_collection.backdrop_path}
+                {/*{movie.belongs_to_collection.id}*/}
+                {/*{movie.belongs_to_collection.name}*/}
+                {/*{movie.belongs_to_collection.poster_path}*/}
+                {/*{movie.belongs_to_collection.backdrop_path}*/}
             </div>
-            <div>{movie.budget}</div>
+            <div>budget {movie.budget}</div>
             {/*<div>{movie.genres}</div>*/}
-            <div>{movie.homepage}</div>
-            <div>{movie.id}</div>
+            <div>homepage {movie.homepage}</div>
+            {/*<div>{movie.id}</div>*/}
             <div>{movie.imdb_id}</div>
             <div>{movie.origin_country}</div>
-            <div>{movie.original_language}</div>
-            <div>{movie.original_title}</div>
-            <div>{movie.overview}</div>
-            <div>{movie.popularity}</div>
-            <div>{movie.poster_path}</div>
+            {/*<div>{movie.original_language}</div>*/}
+
+            <p>{movie.overview}</p>
+            <div>popularity {movie.popularity}</div>
+            {/*<div>{movie.poster_path}</div>*/}
             {/*<div>{movie.production_companies}</div>*/}
-            <div>{movie.release_date}</div>
-            <div>{movie.revenue}</div>
+            <div>release_date {movie.release_date}</div>
+            <div>revenue {movie.revenue}</div>
             {/*<div>{movie.spoken_languages}</div>*/}
-            <div>{movie.status}</div>
-            <div>{movie.tagline}</div>
-            <div>{movie.title}</div>
-            <div>{movie.video}</div>
-            <div>{movie.vote_average}</div>
-            <div>{movie.vote_count}</div>
-
-
-
+            <div>status {movie.status}</div>
+            <div>tagline {movie.tagline}</div>
+            {/*<div>{movie.title}</div>*/}
+            {/*<div>{movie.video}</div>*/}
+            {/*<div>*/}
+                <StarsRatingComponent average={movie.vote_average}/>
+            {/*</div>*/}
+            <div>vote_count {movie.vote_count}</div>
         </div>
     );
 };

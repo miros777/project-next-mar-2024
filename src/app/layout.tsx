@@ -18,6 +18,7 @@ import {Inter} from "next/font/google";
 import "./globals.css";
 import React from "react";
 import {ReduxProvider} from "@/redux/provider";
+import HeaderComponent from "@/components/Header/HeaderComponent";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -32,7 +33,10 @@ export default function RootLayout({children,}: Readonly<TypeRoot>) {
     return (
         <html lang="en">
         <body className={inter.className}>
-        <ReduxProvider>{children}</ReduxProvider>
+        <ReduxProvider>
+            <HeaderComponent/>
+            {children}
+        </ReduxProvider>
         </body>
         </html>
     );

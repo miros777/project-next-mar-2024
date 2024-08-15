@@ -11,7 +11,7 @@ const HeaderComponent = () => {
                 <li><Link href={'/'}>Home</Link></li>
                 <li><SearchComponent/></li>
                 <li></li>
-                <li><Link href={'/movies?page=1'}>MoviesPage</Link></li>
+                <li><Link href={'/movies'}>MoviesPage</Link></li>
                 <li><Link href={'/user'}>User</Link></li>
             </ul>
         </div>

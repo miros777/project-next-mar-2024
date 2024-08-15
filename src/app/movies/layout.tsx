@@ -10,7 +10,7 @@ type Props = { children: React.ReactNode };
 const MoviesLayout = ({children}: Readonly<Props>) => {
     return (
         <>
-            <HeaderComponent/>
+            {/*<HeaderComponent/>*/}
             Movies layout start
             {children}
             Movies layout end

@@ -1,7 +1,7 @@
 import {IMovie} from "@/models/IMovie";
 
 export interface IMovies {
-    page: 1,
+    page: number,
     results: IMovie[],
     total_pages: number,
 }

@@ -10,7 +10,7 @@ type Props = { children: React.ReactNode };
 const UserLayout = ({children}: Readonly<Props>) => {
     return (
         <>
-            <HeaderComponent/>
+            {/*<HeaderComponent/>*/}
             SearchLayout layout start
             {children}
             SearchLayout layout end

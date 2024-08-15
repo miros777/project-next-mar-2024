@@ -1,7 +1,8 @@
-import React, {createElement} from 'react';
+import React, {createElement, FC} from 'react';
 import Link from "next/link";
 import {getPlaceholder} from "@/helpers/helpers";
 import StarsRatingComponent from "@/components/StarsRating/StarsRatingComponent";
+import {IMovie} from "@/models/IMovie";
 
 type myType = {
     children: React.ReactNode;

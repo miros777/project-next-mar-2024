@@ -3,7 +3,25 @@
   flex-wrap: wrap;
 }
 .card{
-  width: 33%;
-  padding: 25;
+  width: 24%;
+  padding: 25px;
+}
+.pagination{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.pagination-num{
+  font-size: 22px;
+  background: #3E5C9A;
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  border-radius: 50%;
 }
 

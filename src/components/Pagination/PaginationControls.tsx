@@ -8,7 +8,7 @@ interface PaginationControlsProps {
     hasPrevPage: boolean
 }
 
-const PaginationComponent: FC<PaginationControlsProps> = (
+const PaginationControls: FC<PaginationControlsProps> = (
     {
         hasNextPage,
         hasPrevPage,
@@ -16,10 +16,14 @@ const PaginationComponent: FC<PaginationControlsProps> = (
 ) => {
     const router = useRouter();
     const searchParams = useSearchParams();
+    // console.log(router);
+    // console.log('000000000000');
+    // console.log(searchParams);
+
     const page = searchParams.get('page') ?? '1'
 
     return (
-        <div className="pagination">
+        <div className='flex gap-2'>
             <button
                 className='bg-blue-500 text-white p-1'
                 disabled={!hasPrevPage}
@@ -30,7 +34,7 @@ const PaginationComponent: FC<PaginationControlsProps> = (
                 prev page
             </button>
 
-            <div className="pagination-num">
+            <div>
                 {page}
             </div>
 
@@ -47,4 +51,4 @@ const PaginationComponent: FC<PaginationControlsProps> = (
     )
 }
 
-export default PaginationComponent;
+export default PaginationControls

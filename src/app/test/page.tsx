@@ -1,19 +1,17 @@
-
-import React from 'react';
+import PaginationControls from "@/components/Pagination/PaginationControls";
 import {servicesMovie} from "@/services/api.services";
 import MoviesListCardComponent from "@/components/MoviesListCard/MoviesListCardComponent";
-import PaginationComponent from "@/components/Pagination/PaginationComponent";
-import PaginationControls from "@/components/Pagination/PaginationControls";
+import React, {FC} from "react";
+import MoviesPageComponent from "@/components/MoviesPage/MoviesPageComponent";
 
 // type IProps = {
 //     searchParams: {
-//         page?: string,
-//         with_genres?: string }
+//         page: string
+//     }
 // }
-// /discover/movie?with_genres=${with_genres}&page=${page}
 
-const Page = async ({searchParams}) => {
-
+// export default async function Home({searchParams,}: { searchParams: { [key: string]: string | string[] | undefined } }) {
+ const Home = async ({searchParams}) => {
     const page = searchParams['page'] ?? '1'
 
     const movies = await servicesMovie.getMovies(page.toString());
@@ -23,7 +21,6 @@ const Page = async ({searchParams}) => {
 
     return (
         <>
-            <h2>Movies All</h2>
             <div className='wrapper'>
                 {
                     movies.results.map(movie => (
@@ -32,13 +29,12 @@ const Page = async ({searchParams}) => {
                 }
             </div>
             <div className='wrapper'>
-                <PaginationComponent
-                    hasNextPage={end < movies.total_pages}
-                    hasPrevPage={start > 0}
-                />
+                <PaginationControls
+                hasNextPage={end < movies.total_pages}
+                hasPrevPage={start > 0}
+            />
             </div>
         </>
-    );
-};
-
-export default Page;
+    )
+}
+export default Home;

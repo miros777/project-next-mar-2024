@@ -1,12 +1,14 @@
 import React from 'react';
 import MovieInfoComponent from "@/components/MovieInfo/MovieInfoComponent";
 
-const Page =  ({params: {id}}) => {
+const Page = ({params: {id}}) => {
 
     return (
         <div>
             <h2>Single page Movie</h2>
-            <MovieInfoComponent key={id} params={id}/>
+            <div className="wrapper">
+                <MovieInfoComponent key={id} params={id}/>
+            </div>
         </div>
     );
 };

@@ -1,0 +1,14 @@
+.topMenu{
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+}
+.topMenu li{
+    padding: 10px;
+}
+.topMenu li a{
+    text-decoration: none;
+}
+/*ul{*/
+/*    list-style-type: none;*/
+/*}*/

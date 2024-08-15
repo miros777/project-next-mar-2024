@@ -44,23 +44,36 @@ const servicesUser = {
     }
 };
 
-// async function getGenre ():Promise<IGenres> {
-//     const response = await fetch(baseUrl + '/genre/movie/list', options)
-//         .then(response => response.json())
-//         .then(response => response)
-//         .catch(err => console.error(err));
-//     console.log(response);
-//
-//     return response;
-// }
+async function getGenre ():Promise<IGenre[]> {
+    const response = await fetch(baseUrl + '/genre/movie/list', options)
+        .then(response => response.json())
+        .catch(err => console.error(err));
+    return response.genres;
+}
+async function getMovieByGenre (id:string):Promise<IMovies> {
+    const response = await fetch(baseUrl + '/discover/movie?with_genres=' + id, options)
+        .then(response => response.json())
+        // .then(response => response)
+        .catch(err => console.error(err));
+    // console.log(response);
+
+    return response;
+}
 
 const servicesMovie = {
-    getMovies: async (): Promise<IMovies> => {
-        const res = await fetch(baseUrl + '/discover/movie', options)
+    getMovies: async (query:string): Promise<IMovies> => {
+        const res = await fetch(baseUrl + '/discover/movie?page=' + query, options)
             .then(response => response.json())
             .catch(err => console.error(err));
+        // console.log(res);
         return res;
     },
+    // getMoviesPagination: async (query:string): Promise<IMovies> => {
+    //     const res = await fetch(baseUrl + '/discover/movie?page=' + query, options)
+    //         .then(response => response.json())
+    //         .catch(err => console.error(err));
+    //     return res;
+    // },
     getPosterByPath: async (id_movie: number): Promise<any> => {
         const res = await fetch('https://api.themoviedb.org/3/movie/' + id_movie + '/images', options)
             .then(response => response.json())
@@ -86,6 +99,8 @@ const servicesMovie = {
 export {
     servicesGender,
     servicesMovie,
-    servicesUser
+    servicesUser,
+    getGenre,
+    getMovieByGenre
 
 }
