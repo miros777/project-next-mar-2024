@@ -1,24 +1,18 @@
 "use client";
-import React, {FormEvent} from 'react';
+import React from 'react';
 import Link from "next/link";
-import {servicesMovie} from "@/services/api.services";
 import SearchComponent from "@/components/SearchComponent/SearchComponent";
-import {useRouter} from "next/router";
-
+import styles from './HeaderComponent.module.css';
 const HeaderComponent = () => {
-
-    // const { query } = useRouter();
-
     return (
+
         <div>
-            <ul>
+            <ul className={styles.topMenu}>
                 <li><Link href={'/'}>Home</Link></li>
-                <li>
-                    <SearchComponent/>
-                </li>
+                <li><SearchComponent/></li>
                 <li></li>
-                <li></li>
-                <li><Link href={'/movies'}>MoviesPage</Link></li>
+                <li><Link href={'/movies?page=1'}>MoviesPage</Link></li>
+                <li><Link href={'/user'}>User</Link></li>
             </ul>
         </div>
     );
