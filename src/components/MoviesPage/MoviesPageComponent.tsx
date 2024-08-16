@@ -1,8 +1,6 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {servicesMovie} from "@/services/api.services";
 import MoviesListCardComponent from "@/components/MoviesListCard/MoviesListCardComponent";
-import {useSearchParams} from "react-router-dom";
-import {IMovie} from "@/models/IMovie";
 
 type IProps = {
     searchParams: {
@@ -10,8 +8,6 @@ type IProps = {
         with_genres?: string }
 }
 const MoviesPageComponent = async ({searchParams}) => {
-
-    // let page = searchParams.page || '1';
 
     const movies = await servicesMovie.getMovies(searchParams.page);
 

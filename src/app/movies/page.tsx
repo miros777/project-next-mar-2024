@@ -1,21 +1,17 @@
-
 import React from 'react';
 import {servicesMovie} from "@/services/api.services";
 import MoviesListCardComponent from "@/components/MoviesListCard/MoviesListCardComponent";
 import PaginationComponent from "@/components/Pagination/PaginationComponent";
-import PaginationControls from "@/components/Pagination/PaginationControls";
 
-// type IProps = {
-//     searchParams: {
-//         page?: string,
-//         with_genres?: string }
-// }
-// /discover/movie?with_genres=${with_genres}&page=${page}
+type IProps = {
+    searchParams: {
+        page?: string,
+        with_genres?: string }
+}
 
-const Page = async ({searchParams}) => {
+const Page = async ({searchParams}:IProps) => {
 
     const page = searchParams['page'] ?? '1'
-
     const movies = await servicesMovie.getMovies(page.toString());
 
     const start = (Number(page) - 1);

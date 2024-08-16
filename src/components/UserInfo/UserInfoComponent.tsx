@@ -1,9 +1,9 @@
-import React, {createElement} from 'react';
+import React, {createElement, FC} from 'react';
 import {servicesUser} from "@/services/api.services";
+import {IUser} from "@/models/IUser";
 
 const UserInfoComponent = async () => {
     const userInfo = await servicesUser.getUserInfo();
-    console.log(userInfo);
     return (
         <div>
             <div>id: {userInfo.id} </div>

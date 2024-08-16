@@ -1,27 +1,49 @@
-.wrapper{
-  display: flex;
-  flex-wrap: wrap;
+body {
+    font-family: sans-serif;
 }
-.card{
-  width: 24%;
-  padding: 25px;
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
 }
-.pagination{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+
+.card {
+    width: 24%;
+    padding: 25px;
 }
-.pagination-num{
-  font-size: 22px;
-  background: #3E5C9A;
-  color: white;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
-  border-radius: 50%;
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
+
+.pagination-num {
+    font-size: 22px;
+    background: #3E5C9A;
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    border-radius: 50%;
+}
+
+.genreLink {
+    text-decoration: none;
+    background: black;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    display: block;
+}
+
+.genreLink:hover {
+    background: red;
+}
+
+
 

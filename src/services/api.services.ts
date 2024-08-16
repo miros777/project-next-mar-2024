@@ -53,9 +53,7 @@ async function getGenre ():Promise<IGenre[]> {
 async function getMovieByGenre (id:string):Promise<IMovies> {
     const response = await fetch(baseUrl + '/discover/movie?with_genres=' + id, options)
         .then(response => response.json())
-        // .then(response => response)
         .catch(err => console.error(err));
-    // console.log(response);
 
     return response;
 }
@@ -65,7 +63,6 @@ const servicesMovie = {
         const res = await fetch(baseUrl + '/discover/movie?page=' + query, options)
             .then(response => response.json())
             .catch(err => console.error(err));
-        // console.log(res);
         return res;
     },
     // getMoviesPagination: async (query:string): Promise<IMovies> => {
@@ -81,8 +78,8 @@ const servicesMovie = {
         return res.backdrops;
     },
 
-    getMovieByID: async (movie_id: number): Promise<IMovieInfo> => {
-        const res = await fetch(baseUrl + '/movie/' + movie_id, options)
+    getMovieByID: async (id_movie: number): Promise<IMovieInfo> => {
+        const res = await fetch(baseUrl + '/movie/' + id_movie, options)
             .then(response => response.json())
             .catch(err => console.error(err));
         return res;

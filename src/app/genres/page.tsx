@@ -3,7 +3,7 @@ import React from 'react';
 const Page = () => {
     return (
         <div>
-            <h2>pAGE GENRE</h2>
+            <h2>All GENRE</h2>
         </div>
     );
 };

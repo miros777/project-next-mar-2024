@@ -1,14 +1,16 @@
-.topMenu{
+.topMenu {
     display: flex;
+    width: 100%;
     justify-content: space-between;
     list-style-type: none;
 }
-.topMenu li{
+
+.topMenu li {
     padding: 10px;
 }
-.topMenu li a{
+
+.topMenu li a {
     text-decoration: none;
+    text-transform: uppercase;
+    font-size: 24px;
 }
-/*ul{*/
-/*    list-style-type: none;*/
-/*}*/

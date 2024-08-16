@@ -25,7 +25,7 @@ const PaginationComponent: FC<PaginationControlsProps> = (
                 disabled={!hasPrevPage}
                 onClick={() => {
                     // router.push(`test/?page=${Number(page) - 1}&per_page=${per_page}`)
-                    router.push(`movies?page=${Number(page) - 1}`)
+                    router.push(`?page=${Number(page) - 1}`);
                 }}>
                 prev page
             </button>
@@ -39,7 +39,7 @@ const PaginationComponent: FC<PaginationControlsProps> = (
                 disabled={!hasNextPage}
                 onClick={() => {
                     // router.push(`test/?page=${Number(page) + 1}&per_page=${per_page}`)
-                    router.push(`movies?page=${Number(page) + 1}`)
+                    router.push(`?page=${Number(page) + 1}`);
                 }}>
                 next page
             </button>

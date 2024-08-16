@@ -3,14 +3,13 @@ import type {Metadata} from "next";
 import HeaderComponent from "@/components/Header/HeaderComponent";
 
 export const metadata: Metadata = {
-    title: "MoviesLayout",
+    title: "Movies Layout",
 };
 
 type Props = { children: React.ReactNode };
 const MoviesLayout = ({children}: Readonly<Props>) => {
     return (
         <>
-            {/*<HeaderComponent/>*/}
             Movies layout start
             {children}
             Movies layout end

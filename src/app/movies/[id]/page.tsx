@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {FC} from 'react';
 import MovieInfoComponent from "@/components/MovieInfo/MovieInfoComponent";
 
-const Page = ({params: {id}}) => {
+type IProps = {
+    params: { id: string }
+}
+const Page:FC<IProps> = ({params: {id}}:IProps) => {
 
     return (
         <div>

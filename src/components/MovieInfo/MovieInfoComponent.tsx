@@ -1,13 +1,22 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {servicesMovie} from "@/services/api.services";
 import PosterPreviewComponent from "@/components/PosterPreview/PosterPreviewComponent";
-import StarsRatingComponent from "@/components/StarsRating/StarsRatingComponent";
+import SrarsComponentNew from "@/components/StarsRating/SrarsComponentNew";
 
+type IProps = {
+    params: {movie_id: number}
+}
 const MovieInfoComponent =  async ({params}) => {
+    console.log(params);
+
     const id_movie = params;
+    console.log('fffffffffff')
+    console.log(id_movie);
+    console.log('fffffffffff')
+
     const movie = await servicesMovie.getMovieByID(id_movie);
 
-    console.log(movie);
+    // console.log(movie);
     return (
         <div>
             <h2>MovieInfoComponent</h2>
@@ -41,7 +50,7 @@ const MovieInfoComponent =  async ({params}) => {
             {/*<div>{movie.title}</div>*/}
             {/*<div>{movie.video}</div>*/}
             {/*<div>*/}
-                <StarsRatingComponent average={movie.vote_average}/>
+            <div><SrarsComponentNew average={movie.vote_average}/></div>
             {/*</div>*/}
             <div>vote_count {movie.vote_count}</div>
         </div>
