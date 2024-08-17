@@ -9,9 +9,7 @@ type Props = { children: React.ReactNode };
 const SearchLayout = ({children}: Readonly<Props>) => {
     return (
         <>
-            SearchLayout layout start
             {children}
-            SearchLayout layout end
         </>
     );
 };

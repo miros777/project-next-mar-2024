@@ -18,16 +18,16 @@ const MovieInfoComponent =  async ({params}:JSON) => {
             <PosterPreviewComponent path={path}/>
             <div className="infoCardText">
                 <div className="textMovie">
-                    <h3>About movie</h3>
+                    <h2>About movie</h2>
                     <p>{movie.overview}</p>
                 </div>
-                <div>budget: {movie.budget}</div>
                 <div className="wrapper">
                     {
                         movie.genres.map(genre => <GenreBadgeComponent key={genre.id} id={genre.id}/>)
                     }
                 </div>
-                <div><Link href={movie.homepage}>Go to homepage</Link></div>
+                <div className="linkHome"><Link href={movie.homepage ?? '#'}>Original homepage</Link></div>
+                <div>budget: {movie.budget}</div>
                 <div>origin_country: {movie.origin_country}</div>
                 <div>original_language: {movie.original_language}</div>
                 <div>popularity: {movie.popularity}</div>

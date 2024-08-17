@@ -20,9 +20,9 @@ const Page = async ({params: {id}, searchParams }:IProps) => {
         <div>
 
             <div className="wrapper">
-                <h2>
-                    Genre name GET url
-                </h2>
+                <h1>
+                    Genre
+                </h1>
             </div>
             <div className="wrapper">
                 {

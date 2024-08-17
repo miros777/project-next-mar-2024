@@ -18,12 +18,43 @@ body {
     margin-bottom: 15px;
 }
 .textMovie{
-    font-weight: 700;
+    font-weight: 500;
 }
-
+.textMovie p{
+    font-size: 20px;
+}
+.linkHome a{
+    text-decoration: none;
+    background: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.linkHome a:hover{
+    background: red;
+}
+.splide__arrow svg {
+    fill: red !important;
+}
+.splide__pagination__page.is-active {
+    background: red !important;
+}
+.splide__pagination {
+    bottom: 0em !important;
+}
 .card {
-    width: 24%;
-    padding: 25px;
+    width: 25%;
+    box-sizing: border-box;
+    margin: 3%;
+}
+.card .genreLink {
+    padding: 3px 8px;
+    margin: 5px;
+}
+.cardImg a img{
+    width: 100%;
+    height: auto;
+    display: block;
 }
 .textMovie{
     display: flex;
@@ -71,6 +102,40 @@ body {
 }
 .wrapper h1{
     text-align: center;
+    width: 100%;
 }
-
+header.header, footer.footer{
+    background: black;
+}
+footer.footer{
+    margin-top: 50px;
+}
+header.header a, footer.footer a{
+    color: white;
+}
+header.header form, header.header input{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+header.header input{
+    height: 40px;
+    padding: 5px;
+    font-size: 22px;
+}
+.cardBangWrapper{
+    position: absolute;
+    top: -5px;
+    right: -30px;
+}
+.cardImg{
+    position: relative;
+}
+.cardMore a{
+    color: red;
+    text-decoration: none;
+    margin-top: 15px;
+    display: block;
+}
 

@@ -21,7 +21,6 @@ const SearchComponent = () => {
     return (
 
         <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Name:</label>
             <input
                 id="name"
                 type="text"
