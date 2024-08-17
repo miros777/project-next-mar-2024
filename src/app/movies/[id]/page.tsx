@@ -8,10 +8,9 @@ const Page:FC<IProps> = ({params: {id}}:IProps) => {
 
     return (
         <div>
-            <h2>Single page Movie</h2>
-            <div className="wrapper">
+            {/*<div className="wrapper">*/}
                 <MovieInfoComponent key={id} params={id}/>
-            </div>
+            {/*</div>*/}
         </div>
     );
 };

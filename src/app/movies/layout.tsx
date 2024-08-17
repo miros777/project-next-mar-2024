@@ -10,9 +10,7 @@ type Props = { children: React.ReactNode };
 const MoviesLayout = ({children}: Readonly<Props>) => {
     return (
         <>
-            Movies layout start
             {children}
-            Movies layout end
         </>
     );
 };

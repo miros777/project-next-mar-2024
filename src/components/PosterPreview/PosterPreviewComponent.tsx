@@ -1,29 +1,38 @@
+"use client"
 import React, {createElement} from 'react';
-import {servicesMovie} from "@/services/api.services";
-const PosterPreviewComponent = async ({movie_id}) => {
-    const path = await servicesMovie.getPosterByPath(movie_id);
-    // console.log(path.file_path);
-    console.log(path);
+import {Splide, SplideSlide} from "@splidejs/react-splide";
+// Default theme
+import '@splidejs/react-splide/css';
+
+// or other themes
+import '@splidejs/react-splide/css/skyblue';
+import '@splidejs/react-splide/css/sea-green';
+
+// or only core styles
+import '@splidejs/react-splide/css/core';
+
+const PosterPreviewComponent = ({path}) => {
     return (
-        <div>
-            {/*{*/}
-            {/*    createElement("img",*/}
-            {/*            {src: "https://image.tmdb.org/t/p/w500" + path.file_path, width: 200})*/}
-            {/*}*/}
-
+        <>
             {/*All posters CODE*/}
-            {path.map((v)=>{
+            <Splide options={ {
+                rewind: true,
+                width : 800,
+                gap   : '1rem',
+            } } className="sliderPosters" aria-label="My Favorite Images">
 
-                    const imgUrl = createElement("img",
-                        {src: "https://image.tmdb.org/t/p/w500" + v.file_path,
-                        width: 100}
-                    );
-
-                  return imgUrl;
-            }
-            )}
-        </div>
-    );
+                {path.map((v,i) => {
+                  return  <SplideSlide key={i}>
+                        {createElement(
+                            "img",
+                            {src: "https://image.tmdb.org/t/p/w500" + v.file_path, width: 800},
+                        )}
+                    </SplideSlide>
+                })
+                }
+            </Splide>
+        </>
+    )
 };
 
 export default PosterPreviewComponent;

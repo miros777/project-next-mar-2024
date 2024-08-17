@@ -1,58 +1,44 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {servicesMovie} from "@/services/api.services";
-import PosterPreviewComponent from "@/components/PosterPreview/PosterPreviewComponent";
 import SrarsComponentNew from "@/components/StarsRating/SrarsComponentNew";
+import GenreBadgeComponent from "@/components/GenreBadge/GenreBadgeComponent";
+import Link from "next/link";
+import Slider from "@/components/slider/Slider";
+import PosterPreviewComponent from "@/components/PosterPreview/PosterPreviewComponent";
 
-type IProps = {
-    params: {movie_id: number}
-}
-const MovieInfoComponent =  async ({params}) => {
-    console.log(params);
-
-    const id_movie = params;
-    console.log('fffffffffff')
-    console.log(id_movie);
-    console.log('fffffffffff')
+const MovieInfoComponent =  async ({params}:JSON) => {
+    // const id_movie = JSON.parse(params);
+    const id_movie =params;
 
     const movie = await servicesMovie.getMovieByID(id_movie);
-
-    // console.log(movie);
+    const path = await servicesMovie.getPosterByPath(movie.id);
     return (
-        <div>
-            <h2>MovieInfoComponent</h2>
-            <PosterPreviewComponent movie_id={movie.id}/>
-            <div>{movie.adult}</div>
-            {/*<div>backdrop_path: {movie.backdrop_path}</div>*/}
-            <h4>{movie.original_title}</h4>
-            <div>
-                {/*{movie.belongs_to_collection.id}*/}
-                {/*{movie.belongs_to_collection.name}*/}
-                {/*{movie.belongs_to_collection.poster_path}*/}
-                {/*{movie.belongs_to_collection.backdrop_path}*/}
+        <div className="wrapper flexColumn">
+            <h1>{movie.original_title}</h1>
+            <PosterPreviewComponent path={path}/>
+            <div className="infoCardText">
+                <div className="textMovie">
+                    <h3>About movie</h3>
+                    <p>{movie.overview}</p>
+                </div>
+                <div>budget: {movie.budget}</div>
+                <div className="wrapper">
+                    {
+                        movie.genres.map(genre => <GenreBadgeComponent key={genre.id} id={genre.id}/>)
+                    }
+                </div>
+                <div><Link href={movie.homepage}>Go to homepage</Link></div>
+                <div>origin_country: {movie.origin_country}</div>
+                <div>original_language: {movie.original_language}</div>
+                <div>popularity: {movie.popularity}</div>
+                <div>release_date: {movie.release_date}</div>
+                <div>revenue: {movie.revenue}</div>
+                <div>status: {movie.status}</div>
+                <div>tagline: {movie.tagline}</div>
+                <div>vote_count: {movie.vote_count}</div>
+                <div><SrarsComponentNew average={movie.vote_average}/></div>
             </div>
-            <div>budget {movie.budget}</div>
-            {/*<div>{movie.genres}</div>*/}
-            <div>homepage {movie.homepage}</div>
-            {/*<div>{movie.id}</div>*/}
-            <div>{movie.imdb_id}</div>
-            <div>{movie.origin_country}</div>
-            {/*<div>{movie.original_language}</div>*/}
 
-            <p>{movie.overview}</p>
-            <div>popularity {movie.popularity}</div>
-            {/*<div>{movie.poster_path}</div>*/}
-            {/*<div>{movie.production_companies}</div>*/}
-            <div>release_date {movie.release_date}</div>
-            <div>revenue {movie.revenue}</div>
-            {/*<div>{movie.spoken_languages}</div>*/}
-            <div>status {movie.status}</div>
-            <div>tagline {movie.tagline}</div>
-            {/*<div>{movie.title}</div>*/}
-            {/*<div>{movie.video}</div>*/}
-            {/*<div>*/}
-            <div><SrarsComponentNew average={movie.vote_average}/></div>
-            {/*</div>*/}
-            <div>vote_count {movie.vote_count}</div>
         </div>
     );
 };
