@@ -3,7 +3,7 @@ import UserInfoComponent from "@/components/UserInfo/UserInfoComponent";
 
 const Page = () => {
     return (
-        <div>
+        <div className="wrapper">
             <UserInfoComponent/>
         </div>
     );

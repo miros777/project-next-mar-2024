@@ -24,7 +24,6 @@ const PaginationComponent: FC<PaginationControlsProps> = (
                 className='bg-blue-500 text-white p-1'
                 disabled={!hasPrevPage}
                 onClick={() => {
-                    // router.push(`test/?page=${Number(page) - 1}&per_page=${per_page}`)
                     router.push(`?page=${Number(page) - 1}`);
                 }}>
                 prev page
@@ -38,7 +37,6 @@ const PaginationComponent: FC<PaginationControlsProps> = (
                 className='bg-blue-500 text-white p-1'
                 disabled={!hasNextPage}
                 onClick={() => {
-                    // router.push(`test/?page=${Number(page) + 1}&per_page=${per_page}`)
                     router.push(`?page=${Number(page) + 1}`);
                 }}>
                 next page

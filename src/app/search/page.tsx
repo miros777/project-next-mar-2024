@@ -12,10 +12,8 @@ const Page = async ({searchParams}: IProps) => {
 
     return (
         <div className="wrapper">
-            {/*<div className="wrapper">*/}
                 <h1>Search Page</h1>
-            {/*</div>*/}
-            <div className="wrapper">
+            <div className="wrapper d-flex j-c-center">
                 {
                     searchRes.map(movie => (
                         <MoviesListCardComponent key={movie.id} movie={movie}/>

@@ -1,25 +1,31 @@
 import React, {createElement, FC} from 'react';
 import {servicesUser} from "@/services/api.services";
-import {IUser} from "@/models/IUser";
+import styles from "./user-info-component.module.css";
 
 const UserInfoComponent = async () => {
     const userInfo = await servicesUser.getUserInfo();
     return (
-        <div>
-            <div>id: {userInfo.id} </div>
-            <div>
-                {  createElement("img",
-                {src: "https://image.tmdb.org/t/p/w500" + userInfo.avatar.tmdb.avatar_path,
-                    width: 100}
-                    )
+        <div className={styles.userCard}>
+            <h1>Info about <span className={styles.activtColor}>{userInfo.name}</span></h1>
+
+            <div className={styles.avatarWrapper}>
+                {createElement("img",
+                    {
+                        src: "https://image.tmdb.org/t/p/w500" + userInfo.avatar.tmdb.avatar_path,
+                        width: 220
+                    }
+                )
                 }
             </div>
-            <div>hash: {userInfo.avatar.gravatar.hash} </div>
-            <div>iso_639_1: {userInfo.iso_639_1} </div>
-            <div>iso_3166_1: {userInfo.iso_3166_1} </div>
-            <div>name: {userInfo.name} </div>
-            <div>include_adult: {userInfo.include_adult} </div>
-            <div>username: {userInfo.username} </div>
+            <div className={styles.userCardText} key={userInfo.id}>
+                <div><span>id:</span> <span>{userInfo.id}</span></div>
+                <div><span>iso_639_1:</span> <span>{userInfo.iso_639_1}</span></div>
+                <div><span>iso_3166_1:</span> <span>{userInfo.iso_3166_1}</span></div>
+                <div><span>name:</span> <span>{userInfo.name}</span></div>
+                <div><span>include_adult:</span> <span>{userInfo.include_adult}</span></div>
+                <div><span>username:</span> <span>{userInfo.username}</span></div>
+            </div>
+
         </div>
     );
 };

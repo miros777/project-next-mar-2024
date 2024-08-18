@@ -6,7 +6,8 @@ import PaginationComponent from "@/components/Pagination/PaginationComponent";
 type IProps = {
     searchParams: {
         page?: string,
-        with_genres?: string }
+        with_genres?: string
+    }
 }
 
 const Page = async ({searchParams}:IProps) => {
@@ -19,8 +20,8 @@ const Page = async ({searchParams}:IProps) => {
 
     return (
         <>
-            <h2>Movies All</h2>
-            <div className='wrapper'>
+            <div className='wrapper d-flex j-c-center'>
+                <h1>Movies All</h1>
                 {
                     movies.results.map(movie => (
                         <MoviesListCardComponent key={movie.id} movie={movie}/>

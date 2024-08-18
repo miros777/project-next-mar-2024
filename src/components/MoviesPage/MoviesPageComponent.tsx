@@ -3,11 +3,10 @@ import {servicesMovie} from "@/services/api.services";
 import MoviesListCardComponent from "@/components/MoviesListCard/MoviesListCardComponent";
 
 type IProps = {
-    searchParams: {
         page?: string,
-        with_genres?: string }
+        with_genres?: string
 }
-const MoviesPageComponent = async ({searchParams}) => {
+const MoviesPageComponent = async ({searchParams}:IProps) => {
 
     const movies = await servicesMovie.getMovies(searchParams.page);
 

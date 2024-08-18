@@ -9,12 +9,11 @@ const SearchComponent = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const data = {name};
+        const response = await servicesMovie.searchByQuery(data.name.toString());
 
-        const res = await servicesMovie.searchByQuery(data.name.toString());
-
-        if(res){
-        setName(res);
-            return res;
+        if(response){
+        setName(response);
+            return response;
         }
     };
 

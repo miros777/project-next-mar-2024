@@ -8,23 +8,18 @@ type IProps = {
     searchParams: { [key: string]: string | string[] | undefined }
 }
 
-const Page = async ({params: {id}, searchParams }:IProps) => {
+const Page = async ({params: {id}, searchParams }) => {
 
     const page = searchParams['page'] ?? '1';
     const start = (Number(page) - 1);
     const end = 0;
 
-    let movies = await getMovieByGenre(id);
+    let movies = await getMovieByGenre(id, page.toString());
 
     return (
         <div>
-
-            <div className="wrapper">
-                <h1>
-                    Genre
-                </h1>
-            </div>
-            <div className="wrapper">
+            <div className="wrapper d-flex j-c-center">
+                <h1>Genre</h1>
                 {
                     movies.results.map(movie => (
                         <MoviesListCardComponent key={movie.id} movie={movie}/>
@@ -32,12 +27,11 @@ const Page = async ({params: {id}, searchParams }:IProps) => {
                 }
             </div>
             <div className='wrapper'>
-                <PaginationComponent
+            <PaginationComponent
                     hasNextPage={end < movies.total_pages}
                     hasPrevPage={start > 0}
                 />
             </div>
-
         </div>
     );
 }

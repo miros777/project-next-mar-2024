@@ -21,22 +21,25 @@ const MovieInfoComponent =  async ({params}:JSON) => {
                     <h2>About movie</h2>
                     <p>{movie.overview}</p>
                 </div>
-                <div className="wrapper">
+                <div className="wrapperGenre">
                     {
                         movie.genres.map(genre => <GenreBadgeComponent key={genre.id} id={genre.id}/>)
                     }
                 </div>
-                <div className="linkHome"><Link href={movie.homepage ?? '#'}>Original homepage</Link></div>
-                <div>budget: {movie.budget}</div>
-                <div>origin_country: {movie.origin_country}</div>
-                <div>original_language: {movie.original_language}</div>
-                <div>popularity: {movie.popularity}</div>
-                <div>release_date: {movie.release_date}</div>
-                <div>revenue: {movie.revenue}</div>
-                <div>status: {movie.status}</div>
-                <div>tagline: {movie.tagline}</div>
-                <div>vote_count: {movie.vote_count}</div>
-                <div><SrarsComponentNew average={movie.vote_average}/></div>
+                <div className="infoTextWrapper">
+                    <div className="linkHome"><Link href={movie.homepage ?? '#'}>Original homepage</Link></div>
+                    <div><span>budget:</span> <span>{movie.budget}</span></div>
+                    <div><span>origin_country:</span> <span>{movie.origin_country}</span></div>
+                    <div><span>original_language:</span> <span>{movie.original_language}</span></div>
+                    <div><span>popularity:</span> <span>{movie.popularity}</span></div>
+                    <div><span>release_date:</span> <span>{movie.release_date}</span></div>
+                    <div><span>revenue:</span> <span>{movie.revenue}</span></div>
+                    <div><span>status:</span> <span>{movie.status}</span></div>
+                    <div><span>tagline:</span> <span>{movie.tagline}</span></div>
+                    <div><span>vote_count:</span> <span>{movie.vote_count}</span></div>
+                    <div><SrarsComponentNew average={movie.vote_average}/></div>
+                </div>
+
             </div>
 
         </div>

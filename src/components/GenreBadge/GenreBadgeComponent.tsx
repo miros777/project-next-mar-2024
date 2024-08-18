@@ -9,7 +9,7 @@ const GenreBadgeComponent = async ({id}) => {
         const getGenreWithMovie = genre.map(v => {
                 if (id == v.id.toString()) {
                     return <div key={v.id}>
-                        <Link className="genreLink" href={{pathname: "/genres/" + v.id}}>{v.name}</Link>
+                        <Link  className="genreLink" href={{pathname: "/genres/" + v.id}}>{v.name}</Link>
                     </div>
                 }
             }
