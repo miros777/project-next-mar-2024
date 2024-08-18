@@ -1,5 +1,5 @@
-import React, {FC} from 'react';
-import {getMovieByGenre} from "@/services/api.services";
+import React from 'react';
+import {servicesMovie} from "@/services/api.services";
 import MoviesListCardComponent from "@/components/MoviesListCard/MoviesListCardComponent";
 import PaginationComponent from "@/components/Pagination/PaginationComponent";
 
@@ -8,13 +8,13 @@ type IProps = {
     searchParams: { [key: string]: string | string[] | undefined }
 }
 
-const Page = async ({params: {id}, searchParams }) => {
+const Page = async ({params: {id}, searchParams }:IProps) => {
 
     const page = searchParams['page'] ?? '1';
     const start = (Number(page) - 1);
     const end = 0;
 
-    let movies = await getMovieByGenre(id, page.toString());
+    let movies = await servicesMovie.getMovieByGenre(id, page.toString());
 
     return (
         <div>

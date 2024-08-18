@@ -26,7 +26,7 @@ const SearchComponent = () => {
                 onChange={e => setName(e.target.value)}
                 placeholder={'any words...'}
             />
-            <Link href={{pathname: "/search/", query: {data: JSON.stringify(name)}}}>Send</Link>
+            <Link href={{pathname: "/search/", query: {data: JSON.stringify(name), page: '1'}}}>Send</Link>
         </form>
 
     );

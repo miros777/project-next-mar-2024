@@ -3,12 +3,10 @@ import {servicesMovie} from "@/services/api.services";
 import SrarsComponentNew from "@/components/StarsRating/SrarsComponentNew";
 import GenreBadgeComponent from "@/components/GenreBadge/GenreBadgeComponent";
 import Link from "next/link";
-import Slider from "@/components/slider/Slider";
 import PosterPreviewComponent from "@/components/PosterPreview/PosterPreviewComponent";
 
-const MovieInfoComponent =  async ({params}:JSON) => {
-    // const id_movie = JSON.parse(params);
-    const id_movie =params;
+const MovieInfoComponent = async ({params}: JSON) => {
+    const id_movie = params;
 
     const movie = await servicesMovie.getMovieByID(id_movie);
     const path = await servicesMovie.getPosterByPath(movie.id);

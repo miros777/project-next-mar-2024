@@ -1,10 +1,10 @@
 import React from 'react';
-import {getGenre} from "@/services/api.services";
+import {servicesMovie} from "@/services/api.services";
 import Link from "next/link";
 
 const GenreBadgeComponent = async ({id}) => {
 
-        let genre = await getGenre();
+        let genre = await servicesMovie.getGenre();
 
         const getGenreWithMovie = genre.map(v => {
                 if (id == v.id.toString()) {

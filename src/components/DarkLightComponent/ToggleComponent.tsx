@@ -1,22 +1,19 @@
 "use client";
-import React, {useEffect, useState} from 'react';
+import React from 'react';
+import {useAppDispatch, useAppSelector} from "@/redux/store";
+import {changeColor} from "@/redux/slices/toggleSlice";
+
 
 const ToggleButton = () => {
-    const [active, setActive] = useState(false);
 
-    useEffect(() => {
-        if (active) {
-            document.body.style.backgroundColor = "black";
-        } else {
-            document.body.style.backgroundColor = "#d9d9d9";
-        }
-    }, [active]);
-
+    let {isActive} = useAppSelector(state => state.toggleSliceMy);
+    let dispatch = useAppDispatch();
     return (
         <>
-            <button onClick={() => setActive(!active)} type="button">
-                <span className="is-block">{active ? "Dark" : "Light"}</span>
-            </button>
+            <button className="toggle-button" type="button" onClick={() => {
+                dispatch(changeColor(!isActive))
+            }
+            }><span>{isActive ? "Light" : "Dark"}</span></button>
         </>
     );
 }

@@ -1,16 +1,16 @@
 import React from 'react';
 import Link from "next/link";
-import {getGenre} from "@/services/api.services";
+import {servicesMovie} from "@/services/api.services";
 
 const GenreComponent = async () => {
-    let genre = await getGenre();
+    let genre = await servicesMovie.getGenre();
 
     return (
         <div className="wrapper">
             {
                 genre.map(v => (
                         <div key={v.id}>
-                            <Link  className="genreLink" href={{pathname: "/genres/" + v.id}}>{v.name}</Link>
+                            <Link className="genreLink" href={{pathname: "/genres/" + v.id}}>{v.name}</Link>
                         </div>
                     )
                 )

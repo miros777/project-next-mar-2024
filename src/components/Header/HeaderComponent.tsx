@@ -6,6 +6,7 @@ import styles from './HeaderComponent.module.css';
 import ToggleComponent from "@/components/DarkLightComponent/ToggleComponent";
 
 const HeaderComponent = () => {
+
     return (
         <div>
             <div className="wrapper">

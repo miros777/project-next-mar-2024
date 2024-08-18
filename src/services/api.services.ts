@@ -13,14 +13,6 @@ const options = {method: 'GET', headers: {
         Authorization: 'Bearer ' + token
     }};
 
-const servicesGender = {
-    getGenre: async (): Promise<IGenre[]> => {
-        const response = await fetch(baseUrl + '/genre/movie/list', options)
-            .then(response => response.json())
-            .catch(err => console.error(err));
-        return response.genres;
-    }
-};
 const servicesUser = {
     getUserInfo: async (): Promise<IUser> => {
         const response = await fetch(baseUrl + '/account/21433148', options)
@@ -29,19 +21,6 @@ const servicesUser = {
         return response;
     }
 };
-
-async function getGenre ():Promise<IGenre[]> {
-    const response = await fetch(baseUrl + '/genre/movie/list', options)
-        .then(response => response.json())
-        .catch(err => console.error(err));
-    return response.genres;
-}
-async function getMovieByGenre (id:string, query:string):Promise<IMovies> {
-    const response = await fetch(baseUrl + '/discover/movie?page=' + query + '&with_genres=' + id, options)
-        .then(response => response.json())
-        .catch(err => console.error(err));
-    return response;
-}
 
 const servicesMovie = {
     getMovies: async (query:string): Promise<IMovies> => {
@@ -69,13 +48,28 @@ const servicesMovie = {
             .catch(err => console.error(err));
         return res.results;
     },
+    getGenre: async ():Promise<IGenre[]> => {
+        const response = await fetch(baseUrl + '/genre/movie/list', options)
+            .then(response => response.json())
+            .catch(err => console.error(err));
+        return response.genres;
+    },
+    getMovieByGenre: async (id:string, query:string):Promise<IMovies> => {
+        const response = await fetch(baseUrl + '/discover/movie?page=' + query + '&with_genres=' + id, options)
+            .then(response => response.json())
+            .catch(err => console.error(err));
+        return response;
+    },
+    getMoviePopular: async ():Promise<IMovies> => {
+        const response = await fetch(baseUrl + '/discover/tv?sort_by=popularity.acs', options)
+            .then(response => response.json())
+            .catch(err => console.error(err));
+        console.log(response)
+        return response;
+    }
 };
 
 export {
-    servicesGender,
     servicesMovie,
-    servicesUser,
-    getGenre,
-    getMovieByGenre
-
+    servicesUser
 }

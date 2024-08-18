@@ -3,6 +3,7 @@ body {
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
+    background: #d9d8d8;
 }
 ul, li{
     padding: 0;
@@ -62,7 +63,9 @@ ul, li{
     margin: 3%;
     background: white;
     padding: 12px 12px;
+    color: black;
 }
+
 .card .genreLink {
     padding: 3px 8px;
     margin: 5px;
@@ -190,7 +193,7 @@ h2{
     text-transform: capitalize;
 }
 .infoTextWrapper div{
-    margin: 20px 0;
+    margin: 25px 0;
 }
 header.header form a{
     text-decoration: none;
@@ -204,4 +207,39 @@ header.header form a:hover{
 .wrapperGenre{
     display: flex;
 }
-
+.isActive{
+    background: #353535;
+}
+.isActive p,
+.isActive h1,
+.isActive h2{
+    color: white;
+}
+.isActive .infoTextWrapper span{
+    color: white;
+}
+.isActive .card > * {
+    color: black;
+}
+.toggle-button {
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 11px;
+    color: black;
+}
+.isActive .toggle-button span{
+    color: black;
+}
+.isActive .toggle-button{
+    /*background: #d9d8d8;*/
+}

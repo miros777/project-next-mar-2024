@@ -5,7 +5,10 @@ import SrarsComponentNew from "@/components/StarsRating/SrarsComponentNew";
 import {IMovie} from "@/models/IMovie";
 import GenreBadgeComponent from "@/components/GenreBadge/GenreBadgeComponent";
 
-const MoviesListCardComponent = async ({movie}: IMovie) => {
+type IProps = {
+    movie: IMovie
+}
+const MoviesListCardComponent = async ({movie}: IProps) => {
 
     return (
         <div className="card">
